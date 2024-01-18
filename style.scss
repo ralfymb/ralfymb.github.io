@@ -157,44 +157,49 @@ $color3: #606060;
             color: $color1;
             font-size: 2.5em;
             //background-color: blue;
-            height: 100vh;
+            //height: 100vh;
             padding: 50px 50px 50px 50px;
             .about-me-container {
-                display: flex;
-                flex-direction: row;
-                justify-content: center;
-                align-items: center;
-                column-gap: 100px;
-                //background-color: blue;
-                height: 100%;
-                .about-me-container-column {
-                    h5 {
-                        margin-bottom: 20px;
-                    }
+                h5 {
+                    text-align: left;
+                    margin-bottom: 20px;
                 }
-                .about-me-container-column:nth-child(1) {
-                    flex: 2;
-                    //background-color: pink;
-                    //height: 100%;
-                    //text-align: justify;
-                    p {
-                        text-align: justify;
-                        font-size: .55em;
-                        line-height: 160%;
-                    }
-                }
-                .about-me-container-column:nth-child(2) {
-                    flex: 1;
-                    //background-color: blue;
-                    //height: 100%;
+                .inner {
                     display: flex;
-                    justify-content: center;
-                    align-items: center;
+                    flex-wrap: wrap;
+                    font-size: .55em !important;
+                    line-height: 160%;
+                    //background-color: blue;
                     img {
+                        width: 100%;
                         height: auto;
-                        max-width: 80%;
-                        box-shadow: 10px 10px $color1;
                     }
+                    .column:nth-child(1){
+                        flex: 2;
+                        margin-top: auto;
+                        margin-bottom: auto;
+                    }
+                    .column:nth-child(2){
+                        flex: 1;
+                    }
+                    .column {
+                        //flex: 1;
+                        //flex-basis: 50%;
+                        //flex-grow: 1;
+                        min-width: 300px;
+                        box-sizing: border-box;
+                        padding: 20px;
+                        //  background-color: darken($background, 10%);
+                        img {
+                            box-shadow: 10px 10px $color1;
+                            max-width: 480px;
+                            width: 100%;
+                            height: auto;
+                        }
+                        p {
+                            //background-color: blue;
+                        }
+                    } 
                 }
             }
         }
@@ -421,6 +426,7 @@ $color3: #606060;
             }
         }
 
+        //mobile view
         @media (max-width: 768px) {
             .home {
                 //justify-content: lef;
@@ -450,23 +456,25 @@ $color3: #606060;
             }
 
             .about-me {
-                //background-color: blue;
-                //padding: 20px 20px 20px 20px;
                 .about-me-container {
-                    flex-direction: column-reverse;
-                    .about-me-container-column {
-                        h5 {
-                            margin: 0 !important;
-                            margin-top: 20px !important;
+                    h5 {
+                        font-size: .6em !important;
+                        margin: 0 !important;
+                        margin-bottom: 20px !important;
+                    }
+                    .inner {
+                        flex-direction: column-reverse;
+                        font-size: .4em !important;
+                        .column {
+                            text-align: justify;
+                            img {
+                                max-width: 50% !important;
+                            }
                         }
-                        img {
-                            max-width: 60% !important;
-                        }
-                        h5 {
-                            font-size: .6em !important;
-                        }
-                        p {
-                            font-size: .4em !important;
+                        .column:nth-child(2) {
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
                         }
                     }
                 }
